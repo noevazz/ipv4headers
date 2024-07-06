@@ -43,7 +43,7 @@
 
         .header-table td.answersTitles {
             padding: 0.5rem;
-            color: white;
+            background-color: rgba(245, 222, 179, 0.089);;
         }
 
         .header-table td {
@@ -130,7 +130,7 @@
     <h1>IPv4 Header Drag and Drop Game</h1>
     <p>Drag the fields to the correct position in the IPv4 header table.</p>
 
-    <div class="w3-container w3-center w3-margin-bottom" style="display: none;">
+    <div class="w3-container w3-center w3-margin-bottom">
         <div class="w3-bar">
             <button id="showHideAnswers" class="w3-button w3-round" onclick="showHide()">show/hide answers</button>
         </div>
@@ -168,63 +168,69 @@
                 <div class="w3-card-4 custom-width">
                     <table class="header-table">
                         <tr>
-                            <td id="padding" colspan="8">32 bits</td>
+                            <td id="padding" colspan="32">32 bits</td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="1">Version</td>
-                            <td class="answersTitles" colspan="1">Header Length</td>
-                            <td class="answersTitles" colspan="2">Type of Service</td>
-                            <td class="answersTitles" colspan="4">Total Length</td>
+                            <td class="answersTitles" colspan="4">Version</td>
+                            <td class="answersTitles" colspan="4">Header Length</td>
+                            <td class="answersTitles" colspan="6">DSCP</td>
+                            <td class="answersTitles" colspan="2">ECN</td>
+                            <td class="answersTitles" colspan="16">Total Length</td>
                         </tr>
                         <tr>
-                            <td id="version" colspan="1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="ihl" colspan="1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="tos" colspan="2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="totalLength" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="version" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="ihl" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="dscp" colspan="6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="ecn" colspan="2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="totalLength" colspan="16" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="4">Identifier</td>
-                            <td class="answersTitles" colspan="1">Flags</td>
-                            <td class="answersTitles" colspan="3">Fragment Offset</td>
+                            <td class="answersTitles" colspan="16">Identifier</td>
+                            <td class="answersTitles" colspan="4">Flags</td>
+                            <td class="answersTitles" colspan="12">Fragment Offset</td>
                         </tr>
                         <tr>
-                            <td id="identifier" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="flags" colspan="1" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="fragmentOffset" colspan="3" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="identifier" colspan="16" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="flags" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="fragmentOffset" colspan="12" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="2">Time to Live</td>
-                            <td class="answersTitles" colspan="2">Protocol</td>
-                            <td class="answersTitles" colspan="4">Header Checksum</td>
+                            <td class="answersTitles" colspan="8">Time to Live</td>
+                            <td class="answersTitles" colspan="8">Protocol</td>
+                            <td class="answersTitles" colspan="16">Header Checksum</td>
                         </tr>
                         <tr>
-                            <td id="ttl" colspan="2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="protocol" colspan="2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="headerChecksum" colspan="4" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="ttl" colspan="8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="protocol" colspan="8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="headerChecksum" colspan="16" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="8">Source Address</td>
+                            <td class="answersTitles" colspan="32">Source Address</td>
                         </tr>
                         <tr>
-                            <td id="sourceAddress" colspan="8" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="sourceAddress" colspan="32" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="8">Destination Address</td>
+                            <td class="answersTitles" colspan="32">Destination Address</td>
                         </tr>
                         <tr>
-                            <td id="destinationAddress" colspan="8" ondrop="drop(event)" ondragover="allowDrop(event)">
+                            <td id="destinationAddress" colspan="32" ondrop="drop(event)" ondragover="allowDrop(event)">
                             </td>
                         </tr>
                         <tr>
-                            <td class="answersTitles" colspan="6">Options</td>
-                            <td class="answersTitles" colspan="2">Padding</td>
+                            <td class="answersTitles" colspan="32">Options</td>
                         </tr>
                         <tr>
-                            <td id="options" colspan="6" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
-                            <td id="padding" colspan="2" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                            <td id="options" colspan="32" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
                         </tr>
                         <tr>
-                            <td id="padding" colspan="8">Data</td>
+                            <td class="answersTitles" colspan="32">Padding</td>
+                        </tr>
+                        <tr>
+                            <td id="padding" colspan="32" ondrop="drop(event)" ondragover="allowDrop(event)"></td>
+                        </tr>
+                        <tr>
+                            <td id="padding" colspan="32">Data</td>
                         </tr>
                     </table>
                 </div>
@@ -238,7 +244,8 @@
     <div id="fields" class="field-container">
         <div id="field-version" class="draggable" draggable="true" ondragstart="drag(event)">Version</div>
         <div id="field-ihl" class="draggable" draggable="true" ondragstart="drag(event)">Header Length</div>
-        <div id="field-tos" class="draggable" draggable="true" ondragstart="drag(event)">Type of Service</div>
+        <div id="field-dscp" class="draggable" draggable="true" ondragstart="drag(event)">DSCP</div>
+        <div id="field-ecn" class="draggable" draggable="true" ondragstart="drag(event)">ECN</div>
         <div id="field-totalLength" class="draggable" draggable="true" ondragstart="drag(event)">Total Length</div>
         <div id="field-identifier" class="draggable" draggable="true" ondragstart="drag(event)">Identifier</div>
         <div id="field-flags" class="draggable" draggable="true" ondragstart="drag(event)">Flags</div>
@@ -259,11 +266,12 @@
     <div id="Demo1" class="w3-container w3-hide">
         <ul>
             <li><strong>Version:</strong> Specifies the IP version (typically IPv4).</li>
-            <li><strong>Header Length:</strong> Size of the header in 32-bit words.</li>
-            <li><strong>Type of Service:</strong> Quality of service details (deprecated in favor of Differentiated
-                Services Code Point - DSCP).</li>
+            <li><strong>Header Length:</strong> Size of the header in 32-bit words. It is common to find this field named as IHL, Internet Header Length.</li>
+            <li><strong>DSCP :</strong> (Differentiated Services Code Point): This field replaces the first 6 bits of the original ToS field. It allows specifying a value that indicates the desired class of service for network traffic. DSCP is used to prioritize and manage traffic based on different service levels desired.</li>
+            <li><strong>ECN:</strong> (Explicit Congestion Notification): The last 2 bits of the original ToS field were reserved for ECN in the IP header. ECN enables routers to notify endpoints about congestion in the network, aiding in traffic flow management and improving network performance by avoiding congestion.</li>
+
             <li><strong>Total Length:</strong> Total size of the packet (header + data).</li>
-            <li><strong>Identification:</strong> Unique identifier for the packet.</li>
+            <li><strong>Identification:</strong> Unique identifier for the packet used for fragmentation and reassembly of packets.</li>
             <li><strong>Flags:</strong> Control fragmentation behavior.</li>
             <li><strong>Fragment Offset:</strong> Position of the fragment in the original packet.</li>
             <li><strong>Time to Live (TTL):</strong> Limits packet lifetime in the network.</li>
@@ -271,15 +279,22 @@
             <li><strong>Header Checksum:</strong> Ensures header integrity.</li>
             <li><strong>Source IP Address:</strong> Originating IP address.</li>
             <li><strong>Destination IP Address:</strong> Target IP address.</li>
-            <li><strong>Options:</strong> Optional field for various purposes.</li>
-            <li><strong>Padding:</strong> Used to ensure the header length is a multiple of 32 bits.</li>
+            <li><strong>Options (optional*):</strong> It is variable in size and can contain additional information specific to how the IP packet should be processed.</li>
+            <li><strong>*Padding (optional):</strong> added only when the options field's length is not already a multiple of 32 bits (4 bytes)</li>
         </ul>
-
+        <div>Notes:</div>
+        <ul>
+            <li>In the context of IPv4 headers and many networking protocols, a <strong>"word"</strong> refers to a unit of data size, specifically 32 bits or 4 bytes.</li>
+            <li>The fields from "Version" to "Header Checksum" sum up 20 bytes. If th IHL field have the value of 5 (5x4 = 20 bytes) it is an indication that Options are not added.</li>
+            <li>Since the IHL field is 4 bits length, then the maximum size for the IPv4 headers is 15x4 = 60 bytes</li>
+            <li>there isn't a specific field designated for "padding" in the traditional sense like in some other protocols. However, the concept of padding can be relevant in the context of ensuring that the packet meets minimum size requirements.</li>
+            <li>In the past there was a field called "Type of Service" (ToS), but now has been replaced with DSCP and ECN.</li>
+        </ul>
     </div>
 
     <script>
         let correctCount = 0;
-        const totalFields = 14;
+        const totalFields = 15;
 
         function allowDrop(event) {
             event.preventDefault();
@@ -297,7 +312,8 @@
             const correctMapping = {
                 version: "Version",
                 ihl: "Header Length",
-                tos: "Type of Service",
+                dscp: "DSCP",
+                ecn: "ECN",
                 totalLength: "Total Length",
                 identifier: "Identifier",
                 flags: "Flags",
