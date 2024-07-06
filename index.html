@@ -8,7 +8,8 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <meta property='og:title' content='IPv4 Header videogame' />
     <meta property='og:image' content='https://noevazz.github.io/ipv4headers/ogImage.png' />
-    <meta property='og:description' content='An online videogame to learn the IPv4 header, drag and drop fields into the IPv4 packet.' />
+    <meta property='og:description'
+        content='An online videogame to learn the IPv4 header, drag and drop fields into the IPv4 packet.' />
     <meta property='og:url' content='https://noevazz.github.io/ipv4headers/' />
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -150,11 +151,11 @@
             <a href="https://twitter.com/intent/tweet?url=https://tupagina.github.io&text=Check this videogame to learn the IPv4 Header!."
                 target="_blank" rel="noopener noreferrer" class="share-btn"><i class="fab fa-twitter shareIcon"
                     title="Share on X"></i></a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://noevazz.github.io/ipv4headers/" target="_blank"
-                rel="noopener noreferrer" class="share-btn"><i class="fab fa-facebook shareIcon"
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://noevazz.github.io/ipv4headers/"
+                target="_blank" rel="noopener noreferrer" class="share-btn"><i class="fab fa-facebook shareIcon"
                     title="Share on facebook"></i></a>
-            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://noevazz.github.io/ipv4headers/" target="_blank"
-                rel="noopener noreferrer" class="share-btn"><i class="fab fa-linkedin shareIcon"
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://noevazz.github.io/ipv4headers/"
+                target="_blank" rel="noopener noreferrer" class="share-btn"><i class="fab fa-linkedin shareIcon"
                     title="Share on linkedin"></i></a>
         </div>
 
@@ -248,6 +249,27 @@
         <div id="field-padding" class="draggable" draggable="true" ondragstart="drag(event)">Padding</div>
     </div>
 
+    <button onclick="myFunction('Demo1')" class="w3-btn w3-block w3-black w3-left-align">▼ Review each field:</button>
+    <div id="Demo1" class="w3-container w3-hide">
+        <ul>
+            <li><strong>Version:</strong> Specifies the IP version (typically IPv4).</li>
+            <li><strong>Header Length:</strong> Size of the header in 32-bit words.</li>
+            <li><strong>Type of Service:</strong> Quality of service details (deprecated in favor of Differentiated
+                Services Code Point - DSCP).</li>
+            <li><strong>Total Length:</strong> Total size of the packet (header + data).</li>
+            <li><strong>Identification:</strong> Unique identifier for the packet.</li>
+            <li><strong>Flags:</strong> Control fragmentation behavior.</li>
+            <li><strong>Fragment Offset:</strong> Position of the fragment in the original packet.</li>
+            <li><strong>Time to Live (TTL):</strong> Limits packet lifetime in the network.</li>
+            <li><strong>Protocol:</strong> Specifies the protocol in the data portion (e.g., TCP, UDP).</li>
+            <li><strong>Header Checksum:</strong> Ensures header integrity.</li>
+            <li><strong>Source IP Address:</strong> Originating IP address.</li>
+            <li><strong>Destination IP Address:</strong> Target IP address.</li>
+            <li><strong>Options:</strong> Optional field for various purposes.</li>
+            <li><strong>Padding:</strong> Used to ensure the header length is a multiple of 32 bits.</li>
+        </ul>
+
+    </div>
 
     <script>
         let correctCount = 0;
@@ -355,6 +377,15 @@
             }
         }
         hideElements();
+        //////////////////////////////////////////
+        function myFunction(id) {
+            var x = document.getElementById(id);
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
     </script>
 </body>
 
